@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    width: 800px;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+legend {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.burger,
+.topping,
+.additional {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* border: 1px solid green; */
+    margin: 20px;
+    padding: 20px;
+}
+
+.buy {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+}
+
+.buy:hover {
+    background-color: lightblue;
+}
+
+.buy:active {
+    background-color: #ccc;
+}
+
+.burger-input,
+.additional-input,
+.topping-input {
+    display: none;
+}
+
+img {
+    margin-bottom: 10px;
+}
+
+.radio, .checkbox {
+    width: 200px;
+    height: 200px;
+    outline: 1px solid green;
+    padding: 10px;
+}
+
+.radio:hover, .checkbox:hover {
+    outline: 3px solid green;
+}
+
+.radio-text, .checkbox-text {
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.totalOrder {
+    width: 100%;
+    height: auto;
+    border: 1px solid green;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.total-title {
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: block;
+}
+
+table, tr, td {
+    /* border: 1px solid green; */
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+input:checked + label {
+    outline: 3px solid green;
+}
