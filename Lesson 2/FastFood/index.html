@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <form action="submit">
+            <form action="#">
                 <div class="burger">
                     <legend>Выберите бургер</legend>
                     <input
@@ -18,6 +18,7 @@
                         class="burger-input"
                         data-price="50"
                         data-ccal="20"
+                        value="Small бургер"
                     />
                     <label class="radio" for="burger-small">
                         <img
@@ -37,6 +38,7 @@
                         class="burger-input"
                         data-price="100"
                         data-ccal="40"
+                        value="Big бургер"
                         checked
                     />
                     <label class="radio" for="burger-big">
@@ -59,6 +61,8 @@
                         class="topping-input"
                         data-price="10"
                         data-ccal="20"
+                        name="topping"
+                        value="С сыром"
                     />
                     <label class="checkbox" for="topping-cheese">
                         <img src="./img/cheese.png" alt="cheese" width="100" height="100" />
@@ -72,6 +76,8 @@
                         class="topping-input"
                         data-price="20"
                         data-ccal="5"
+                        name="topping"
+                        value="С салатом"
                     />
                     <label class="checkbox" for="topping-salad">
                         <img src="./img/salad.png" alt="salad" width="100" height="100" />
@@ -85,6 +91,8 @@
                         class="topping-input"
                         data-price="15"
                         data-ccal="10"
+                        name="topping"
+                        value="С картофелем"
                     />
                     <label class="checkbox" for="topping-fries">
                         <img src="./img/fries.png" alt="fries" width="100" height="100" />
@@ -101,6 +109,8 @@
                         class="additional-input"
                         data-price="15"
                         data-ccal="0"
+                        name="additional"
+                        value="Посыпать приправой"
                     />
                     <label class="checkbox" for="additional-salt">
                         <img src="./img/salt.png" alt="salt" width="100" height="100" />
@@ -114,6 +124,8 @@
                         class="additional-input"
                         data-price="20"
                         data-ccal="5"
+                        name="additional"
+                        value="Добавить майонез"
                     />
                     <label class="checkbox" for="additional-souce">
                         <img src="./img/sauce-1.png" alt="sauce" width="100" height="100" />
@@ -124,15 +136,9 @@
                 </div>
                 <div class="totalOrder">
                     <span class="total-title">Вы выбрали:</span>
-                    <table class="table">
-                        <tr>
-                            <td>Total:</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <table class="table"></table>
                 </div>
-                <button type="submit" class="buy">Купить</button>
+                <button type="#" class="buy-btn">Купить</button>
             </form>
         </div>
         <script src="js/script.js"></script>
