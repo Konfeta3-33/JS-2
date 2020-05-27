@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>FastFood</title>
+    </head>
+    <body>
+        <div class="container">
+            <form action="#">
+                <div class="burger">
+                    <legend>Выберите бургер</legend>
+                    <input
+                        id="burger-small"
+                        type="radio"
+                        name="burger"
+                        class="burger-input"
+                        data-price="50"
+                        data-ccal="20"
+                        value="Small бургер"
+                    />
+                    <label class="radio" for="burger-small">
+                        <img
+                            src="./img/burger-icon-png-5-transparent.png"
+                            alt="small-burger"
+                            width="100"
+                            height="100"
+                        />
+                        <div class="radio-text">Small</div>
+                        <div class="radio-price">50 rub.</div>
+                        <div class="radio-ccal">20 ccal.</div>
+                    </label>
+                    <input
+                        id="burger-big"
+                        type="radio"
+                        name="burger"
+                        class="burger-input"
+                        data-price="100"
+                        data-ccal="40"
+                        value="Big бургер"
+                        checked
+                    />
+                    <label class="radio" for="burger-big">
+                        <img
+                            src="./img/burger-icon-png-2-transparent.png"
+                            alt="big-burger"
+                            width="100"
+                            height="100"
+                        />
+                        <div class="radio-text">Big</div>
+                        <div class="radio-price">100 rub.</div>
+                        <div class="radio-ccal">40 ccal.</div>
+                    </label>
+                </div>
+                <div class="topping">
+                    <legend>Выберите дополнение(я)</legend>
+                    <input
+                        id="topping-cheese"
+                        type="checkbox"
+                        class="topping-input"
+                        data-price="10"
+                        data-ccal="20"
+                        name="topping"
+                        value="С сыром"
+                    />
+                    <label class="checkbox" for="topping-cheese">
+                        <img src="./img/cheese.png" alt="cheese" width="100" height="100" />
+                        <div class="checkbox-text">С сыром</div>
+                        <div class="checkbox-price">+10 rub.</div>
+                        <div class="checkbox-ccal">+20 ccal.</div>
+                    </label>
+                    <input
+                        id="topping-salad"
+                        type="checkbox"
+                        class="topping-input"
+                        data-price="20"
+                        data-ccal="5"
+                        name="topping"
+                        value="С салатом"
+                    />
+                    <label class="checkbox" for="topping-salad">
+                        <img src="./img/salad.png" alt="salad" width="100" height="100" />
+                        <div class="checkbox-text">С салатом</div>
+                        <div class="checkbox-price">+20 rub.</div>
+                        <div class="checkbox-ccal">+5 ccal.</div>
+                    </label>
+                    <input
+                        id="topping-fries"
+                        type="checkbox"
+                        class="topping-input"
+                        data-price="15"
+                        data-ccal="10"
+                        name="topping"
+                        value="С картофелем"
+                    />
+                    <label class="checkbox" for="topping-fries">
+                        <img src="./img/fries.png" alt="fries" width="100" height="100" />
+                        <div class="checkbox-text">С картофелем</div>
+                        <div class="checkbox-price">+15 rub.</div>
+                        <div class="checkbox-ccal">+10 ccal.</div>
+                    </label>
+                </div>
+                <div class="additional">
+                    <legend>Дополнительно можно:</legend>
+                    <input
+                        id="additional-salt"
+                        type="checkbox"
+                        class="additional-input"
+                        data-price="15"
+                        data-ccal="0"
+                        name="additional"
+                        value="Посыпать приправой"
+                    />
+                    <label class="checkbox" for="additional-salt">
+                        <img src="./img/salt.png" alt="salt" width="100" height="100" />
+                        <div class="checkbox-text">Посыпать приправой</div>
+                        <div class="checkbox-price">+15 rub.</div>
+                        <div class="checkbox-ccal">+0 ccal.</div>
+                    </label>
+                    <input
+                        id="additional-souce"
+                        type="checkbox"
+                        class="additional-input"
+                        data-price="20"
+                        data-ccal="5"
+                        name="additional"
+                        value="Добавить майонез"
+                    />
+                    <label class="checkbox" for="additional-souce">
+                        <img src="./img/sauce-1.png" alt="sauce" width="100" height="100" />
+                        <div class="checkbox-text">Добавить майонез</div>
+                        <div class="checkbox-price">+20 rub.</div>
+                        <div class="checkbox-ccal">+5 ccal.</div>
+                    </label>
+                </div>
+                <div class="totalOrder">
+                    <span class="total-title">Вы выбрали:</span>
+                    <table class="table"></table>
+                </div>
+                <button type="#" class="buy-btn">Купить</button>
+            </form>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+</html>
