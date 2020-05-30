@@ -59,12 +59,17 @@ class Cart {
     constructor(container = ".cart-open") {
         this.container = container;
         this.items = [];
+        this.count = 0;
+        this.amount = 0;
         this.getCart().then((data) => {
             console.log(data);
             this.items = data.contents;
+            this.count = data.countGoods;
+            this.amount = data.amount;
             // this.render();
         });
     }
+
     getCart() {
         return fetch(`${API}/getBasket.json`)
             .then((data) => data.json())
@@ -75,12 +80,30 @@ class Cart {
     addProductToCart() {}
     deleteProductFromCart() {}
     getTotalSum() {}
-    render() {}
+    render() {
+        const cart = document.querySelector(this.container);
+
+        let cartItems = new CartItem(this.items);
+        cart.map((item) => {})
+    }
 }
 
 class CartItem {
-    constructor() {}
-    render() {}
+    constructor(item) {
+        this.id = item.id_product;
+        this.name = item.product_name;
+        this.price = item.price;
+        this.quantity = item.quantity;
+    }
+
+    render() {
+        return `
+            <div class="cart-item" data-id="${this.id}">
+                <h4>${this.title}</h4>
+                <p>${this.price}</p>
+                <button class="delete">Х</button>
+            </div>`;
+    }
 }
 
 let list = new ProductsList();

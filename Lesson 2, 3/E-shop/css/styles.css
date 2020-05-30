@@ -90,7 +90,7 @@ img {
     color: #2f2a2d;
 }
 
-.cart-open {
+.cart {
     width: 300px;
     min-height: 150px;
     position: absolute;
@@ -100,4 +100,9 @@ img {
     overflow: hidden;
     /* visibility: hidden; */
     background-color: #fff;
+}
+
+.cart-item {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
 }
