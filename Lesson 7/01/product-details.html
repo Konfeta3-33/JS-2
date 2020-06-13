@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://use.fontawesome.com/e8675dc44d.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="slider-product-details padding-site clearfix">
+            <div class="header clearfix">
+                <a href="index.html"><img src="images/logo.svg" alt="logo"></a>
+                <ul class="menu clearfix">
+                    <li class="menu-list"><a href="index.html" class="menu-link">HOME</a></li>
+                    <li class="menu-list"><a href="products.html" class="menu-link menu-link-active">PRODUCTS</a></li>
+                    <li class="menu-list"><a href="#" class="menu-link">HISTORY</a></li>
+                    <li class="menu-list"><a href="#" class="menu-link">SHOWROOM</a></li>
+                    <li class="menu-list"><a href="contact.html" class="menu-link">CONTACT</a></li>
+                    <li class="menu-list">
+                        <a href="#" class="menu-link"><img src="images/search.svg" alt="search"></a>
+                    </li>
+                    <li class="menu-list">
+                        <button class="header-nav-cart"  @click="showCart">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="24"
+                                viewBox="0 0 18 24"
+                            >
+                                <path
+                                    d="M17.994 5.997v14.998a3 3 0 0 1-2.999 3H3.002a3 3 0 0 1-2.999-3V5.997A2.999 2.999 0 0 1 3.002 3H4.5c0-1.657 2.013-3 4.498-3 2.484 0 4.497 1.343 4.497 3h1.5a2.999 2.999 0 0 1 2.998 2.998zM6 3h5.997c0-1.037-1.342-1.5-2.998-1.5-1.656 0-2.999.463-2.999 1.5zm10.495 16.496H1.502v1.5c0 .828.672 1.5 1.5 1.5h11.993a1.5 1.5 0 0 0 1.5-1.5zm0-13.498a1.5 1.5 0 0 0-1.5-1.5h-1.499v4.5h-1.499v-4.5H6v4.5H4.501v-4.5h-1.5a1.5 1.5 0 0 0-1.499 1.5v11.998h14.993z"
+                                />
+                                <path
+                                    d="M17.994 5.997v14.998a3 3 0 0 1-2.999 3H3.002a3 3 0 0 1-2.999-3V5.997A2.999 2.999 0 0 1 3.002 3H4.5c0-1.657 2.013-3 4.498-3 2.484 0 4.497 1.343 4.497 3h1.5a2.999 2.999 0 0 1 2.998 2.998zM6 3h5.997c0-1.037-1.342-1.5-2.998-1.5-1.656 0-2.999.463-2.999 1.5zm10.495 16.496H1.502v1.5c0 .828.672 1.5 1.5 1.5h11.993a1.5 1.5 0 0 0 1.5-1.5zm0-13.498a1.5 1.5 0 0 0-1.5-1.5h-1.499v4.5h-1.499v-4.5H6v4.5H4.501v-4.5h-1.5a1.5 1.5 0 0 0-1.499 1.5v11.998h14.993z"
+                                />
+                            </svg>
+                        </button>
+                        <cart
+                            :cart-items="cart.items"
+                            :img="cart.cartImg"
+                            :visibility="cart.show"
+                            :loading="cart.loading"
+                            @delete="deleteProduct"
+                        ></cart>
+                        <!-- <div class="cart-block">
+                            <div class="cart-item">
+                                <div class="product-bio">
+                                    <img :src="img" alt="Some img">
+                                    <div class="product-desc">
+                                        <div class="product-title">{{ cartItem.product_name }}</div>
+                                        <div class="product-quantity">Quantity: {{ cartItem.quantity }}</div>
+                                        <div class="product-single-price">$ {{ cartItem.price }} each</div>
+                                    </div>
+                                </div>
+                                <div class="right-block">
+                                    <div class="product-price">{{cartItem.quantity*cartItem.price}}</div>
+                                    <button class="del-btn" @click="$parent.$emit('delete', cartItem)">&times;</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-title">
+            <div class="featured-header">
+                <ul class="products-menu clearfix">
+                    <li class="products-menu-list"><a href="#" class="products-menu-link product-menu-link-active">All</a></li><!--
+                    --><li class="products-menu-list"><a href="#" class="products-menu-link">Home</a></li><!--
+                    --><li class="products-menu-list"><a href="#" class="products-menu-link">Office</a></li><!--
+                    --><li class="products-menu-list"><a href="#" class="products-menu-link">Furniture</a></li><!--
+                    --><li class="products-menu-list"><a href="#" class="products-menu-link">Modern</a></li><!--
+                    --><li class="products-menu-list"><a href="#" class="products-menu-link">Classic</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-details padding-site clearfix">
+            <div class="product-images clearfix">
+                <a href="#"><img src="images/slider1.jpg" alt="chair-image" class="product-image"></a>
+                <div class="product-image-sm">
+                    <a href="#"><img src="images/controll.jpg" alt="chair-image" class="product-image"></a>
+                    <a href="#"><img src="images/controll11.jpg" alt="chair-image" class="product-image"></a>
+                    <a href="#"><img src="images/controll2.jpg" alt="chair-image" class="product-image"></a>
+                </div>
+            </div>
+            <div class="product-description">
+                <h2 class="promo-name-product">Fishnet Chair</h2>
+                <p class="hot-tag-product">Hot deal</p>
+                <p class="price"><p class="dollar">&#36;&#8194;</p><p class="cost">36.7</p><p class="sq">&nbsp;/sq</p>
+                <button class="button-product">Order Us <img src="images/arrow-white.svg" alt="arrow" class="button-arrow-product"></button>
+                <div class="description">
+                    <p>The majesty of Mountains - Ugmonk style.<br>
+                    <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore<br>
+                    <br>&nbsp;et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+                    <br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.<br></p>
+                </div>
+            </div>
+        </div>
+        <div class="related padding-site">
+            <div class="ternding-title clearfix">
+                <h2 class="title">Related Products</h2>
+                <a href="#" class="explore">explore all <img src="images/arrow.svg" alt="arrow" class="button-arrow"></a>
+            </div>
+            <div class="trending-products">
+                <a href="#" class="trending-product"><img src="images/product-11.jpg" alt=""></a><!--
+                --><a href="#" class="trending-product"><img src="images/product-21.jpg" alt=""></a><!--
+                --><a href="#" class="trending-product"><img src="images/product-31.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="footer padding-site">
+            <div class="clearfix">
+                <div class="contact">
+                    <p class="mobile-tag">Contact Us</p>
+                    <p class="adress">132A Bridge Road Richmond VIC Australia.</p>
+                    <p class="adress">Talk to us on 1300 132 <a href="mailto:info@interior.com" class="mailto">info@interior.com</a></p>
+                </div>
+                <div class="information">
+                    <p class="mobile-tag">Useful Information</p>
+                    <div class="info-1">
+                        <a href="#" class="info-link">Sales terms</a><br><!--
+                        --><a href="#" class="info-link">Customer care</a><br><!--
+                        --><a href="#" class="info-link">Delivery</a>
+                    </div>
+                    <div class="info-2">
+                        <a href="#" class="info-link">Architect accounts</a><br><!--
+                        --><a href="#" class="info-link">Careers</a><br><!--
+                        --><a href="#" class="info-link">Exchanges & returns</a>
+                    </div>
+                </div>
+                <div class="stay">
+                    <p class="mobile-tag">Let’s Stay in Touch!</p>
+                    <p class="stay-text">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
+                    <form action="#" class="email">
+                        <input type="text" class="feedback" placeholder="your email address">
+                        <button class="send"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="rights">
+                <p class="copy-terms">&copy; Copyright - INTERIOR 2016. All Rights Reserved.</p>
+                <a href="https://facebook.com"><span class="fa-stack"><i class="far fa-circle fa-stack-1x"></i><i class="fab fa-facebook fa-stack-1x"></i></span></a><!--
+                --><a href="https://twitter.com"><span class="fa-stack"><i class="fas fa-circle fa-stack-1x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a><!--
+                --><a href="https://google.com"><span class="fa-stack"><i class="far fa-circle fa-stack-1x"></i><i class="fab fa-google-plus fa-stack-1x"></i></span></a><!--
+                --><a href="https://pinterest.com"><span class="fa-stack"><i class="far fa-circle fa-stack-1x"></i><i class="fab fa-pinterest fa-stack-1x"></i></span></a>
+                <p class="copy-terms"><a href="#" class="">Terms & Conditions</a> / <a href="#">Privacy policy & Cookies</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/CartComponent.js"></script>
+    <script src="./js/Loading.js"></script>
+    <script src="./js/script.js"></script>
+</body></html>
