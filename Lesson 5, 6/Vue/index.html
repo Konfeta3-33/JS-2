@@ -12,17 +12,26 @@
             <header>
                 <div class="logo">E-shop</div>
                 <div class="cart">
-                    <form action="#" class="search-form">
+                    <search v-model="searchLine" @input="findItem(searchLine)"></search>
+                    <!-- <form action="#" class="search-form">
                         <input type="text" class="search-field" v-model="searchLine" />
                         <button class="btn-search" type="submit" @click="findItem(searchLine)">
                             <i class="fas fa-search"></i>
                         </button>
-                    </form>
+                    </form> -->
                     <button class="btn-cart" type="button" @click="showCart">Корзина</button>
-                    <div class="cart-block" v-show="cart.show">
+                    <cart
+                        :cart-items="cart.items"
+                        :img="cart.cartImg"
+                        :visibility="cart.show"
+                        :loading="cart.loading"
+                        @delete="deleteProduct"
+                    ></cart>
+                    <!-- @remove="remove" -->
+                    <!-- <div class="cart-block" v-show="cart.show">
                         <div class="cart-item" v-for="item of cart.items.contents">
                             <div class="product-bio">
-                                <img src="https://placeimg.com/50/50/nature" alt="Some image" />
+                                <img :src="cart.cartImg" alt="Some image" />
                                 <div class="product-desc">
                                     <p class="product-title">{{ item.product_name }}</p>
                                     <p class="product-quantity">Quantity: {{ item.quantity }}</p>
@@ -36,26 +45,22 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </header>
             <main>
-                <div class="products">
+                <products :products="displayItems" :img="catalog.catalogImg" @add-product="addProduct"></products>
+                <loading class="product-loading" :loading="catalog.loading">Нет данных</loading>
+                <!-- <div class="products">
                     <div class="product-item" v-for="item of displayItems">
-                        <img
-                            src="https://placeimg.com/200/150/nature"
-                            alt="Some img"
-                            width="200"
-                            height="150"
-                        />
+                        <img :src="catalog.catalogImg" alt="Some img" width="200" height="150" />
                         <div class="desc">
                             <h3>{{ item.product_name }}</h3>
                             <p>{{ item.price }} $</p>
                             <button class="buy-btn">Купить</button>
                         </div>
                     </div>
-                    <div class="no-data" v-show="catalog.loading">Нет данных</div>
-                </div>
+                </div> -->
             </main>
             <script
                 defer
@@ -63,6 +68,10 @@
                 integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
                 crossorigin="anonymous"
             ></script>
+            <script src="js/CartComponent.js"></script>
+            <script src="js/ProductComponent.js"></script>
+            <script src="js/Search.js"></script>
+            <script src="js/Loading.js"></script>
             <script src="js/script.js"></script>
         </div>
     </body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./css/styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="container" id="app">
+            <nav class="navbar navbar-light bg-dark">
+                <search v-model="searchLine" @input="findItem(searchLine)"></search>
+                <div class="btn-group ml-auto">
+                    <button
+                        class="btn btn-light btn-lg dropdown-toggle"
+                        type="button"
+                        @click="showCart"
+                    >
+                        Корзина
+                    </button>
+                    <cart
+                        :cart-items="cart.items"
+                        :img="cart.cartImg"
+                        :visibility="cart.show"
+                        :loading="cart.loading"
+                        @delete="deleteProduct"
+                    ></cart>
+                </div>
+            </nav>
+
+            <br />
+
+            <products
+                :products="displayItems"
+                :img="catalog.catalogImg"
+                @add-product="addProduct"
+            ></products>
+            <loading class="product-loading" :loading="catalog.loading">Нет данных</loading>
+        </div>
+
+        <script
+            defer
+            src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+            integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+            crossorigin="anonymous"
+        ></script>
+        <script src="js/ProductComponent.js"></script>
+        <script src="js/CartComponent.js"></script>
+        <script src="js/Search.js"></script>
+        <script src="js/Loading.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
