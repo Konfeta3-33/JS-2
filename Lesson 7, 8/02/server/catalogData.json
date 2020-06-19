@@ -1,0 +1,38 @@
+[
+    {
+        "id_product": 123,
+        "product_name": "Ноутбук",
+        "price": 45600,
+        "img": "https://placeimg.com/640/480/animals"
+    },
+    {
+        "id_product": 456,
+        "product_name": "Мышка",
+        "price": 1000,
+        "img": "https://placeimg.com/640/480/arch"
+    },
+    {
+        "id_product": 789,
+        "product_name": "Клавиатура",
+        "price": 10000,
+        "img": "https://placeimg.com/640/480/nature"
+    },
+    {
+        "id_product": 101,
+        "product_name": "Колонки",
+        "price": 1300,
+        "img": "https://placeimg.com/640/480/arch"
+    },
+    {
+        "id_product": 102,
+        "product_name": "Наушники",
+        "price": 1500,
+        "img": "https://placeimg.com/640/480/tech"
+    },
+    {
+        "id_product": 103,
+        "product_name": "Коврик",
+        "price": 500,
+        "img": "https://placeimg.com/640/480/animals"
+    }
+]
