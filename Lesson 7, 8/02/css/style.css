@@ -1,0 +1,8 @@
+.basketPanel {
+    width: 600px;
+    padding: 10px;
+}
+
+.productRemoveBtn:hover {
+    cursor: pointer;
+}
