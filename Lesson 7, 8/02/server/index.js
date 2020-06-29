@@ -23,7 +23,7 @@ app.get("/cartData", (req, res) => {
 app.post("/addToCart", (req, res) => {
     fs.readFile("cartData.json", "utf-8", (err, data) => {
         if (err) {
-            res.send('{"result": 0}');
+            res.send(`Что-то пошло не так: ${err}`);
         } else {
             const parseCart = JSON.parse(data);
             const cart = parseCart.contents;
@@ -40,7 +40,7 @@ app.post("/addToCart", (req, res) => {
 
             fs.writeFile("cartData.json", JSON.stringify(parseCart), (err) => {
                 if (err) {
-                    res.send('{"result": 0}');
+                    res.send(`Не удалось записать файл: ${err}`);
                 } else {
                     res.send(parseCart);
                 }
@@ -52,7 +52,7 @@ app.post("/addToCart", (req, res) => {
 app.delete("/deleteFromCart", (req, res) => {
     fs.readFile("cartData.json", "utf-8", (err, data) => {
         if (err) {
-            res.send('{"result": 0}');
+            res.send(`Что-то пошло не так: ${err}`);
         } else {
             const parseCart = JSON.parse(data);
             const item = req.body;
@@ -70,7 +70,7 @@ app.delete("/deleteFromCart", (req, res) => {
 
             fs.writeFile("cartData.json", JSON.stringify(parseCart), (err) => {
                 if (err) {
-                    res.send('{"result": 0}');
+                    res.send(`Не удалось записать файл: ${err}`);
                 } else {
                     res.send(parseCart);
                 }
@@ -80,5 +80,5 @@ app.delete("/deleteFromCart", (req, res) => {
 });
 
 app.listen(8000, () => {
-    console.log("Server is running on port 8000");
+    console.log("Server is running on port 8000!");
 });
